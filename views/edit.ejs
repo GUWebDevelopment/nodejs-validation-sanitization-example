@@ -1,0 +1,61 @@
+<!-- GU CPSC 332 Example Edit Form -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Survey Response</title>
+    <style>
+        table,
+        th {
+            border: 1px solid black;
+
+        }
+
+        td {
+            border: 1px dotted black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Edit</h2>
+    <% //debugger; %>
+    <form action="/edit/<%= response._id %>" method="POST">
+        <table>
+            <tr>
+                <td id="fname">
+                    <input type="text" value="<%= response.first %>" name="first">
+                </td>
+            </tr>
+            <tr>
+                <td id="lname">
+                    <input type="text" value="<%= response.last %>" name="last">
+                </td>
+            </tr>
+            <tr>
+                <td id="check1">
+                    <input type="text" value="<%= response.check1 %>" name="check1">
+                </td>
+            </tr>
+            <tr>
+                <td id="rating">
+                    <input type="text" value="<%= response.rating %>" name="rating">
+                </td>
+            </tr>
+            <tr>
+                <td id="agree">
+                    <input type="text" value="<%= response.agree %>" name="agree">
+                </td>
+            </tr>
+
+        </table>
+        <p>
+            <button><a href="/show">List All (No Changes Saved)</a></button>
+            <button type="submit">Edit (Save Changes)</button>
+        </p>
+    </form>
+</body>
+
+</html>

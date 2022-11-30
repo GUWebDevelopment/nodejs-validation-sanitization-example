@@ -1,0 +1,68 @@
+<!-- GU CPSC 332 Example Output Table -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Submission Page</title>
+    <link rel="icon" href="favicon.png">
+
+    <style>
+        table,
+        th {
+            border: 1px solid black;
+
+        }
+
+        td {
+            border: 1px dotted black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Feedback Submission Success!</h1>
+    <table>
+        <caption>Your Feedback has been added to the database! Here are all submissions:</caption>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Saw What I did</th>
+            <th>Rating</th>
+            <th>It was Funny</th>
+        </tr>
+        <% formResults.forEach(function(response) { //debugger; %>
+        <tr>
+            <td id="fname">
+                <%= response.first %>
+            </td>
+            <td id="lname">
+                <%= response.last %>
+            </td>
+            <td id="check1">
+                <%= response.check1 %>
+            </td>
+            <td id="rating">
+                <%= response.rating %>
+            </td>
+            <td id="agree">
+                <%= response.agree %>
+            </td>
+            <td>
+                <!-- Added for our UPDATE and DELETE parts of CRUD -->
+                <a href="/edit/<%= response._id %>">Edit</a> |
+                <!-- <a href="/edit/<%= response._id %>">Edit</a> | -->
+                <a href="/delete/<%= response._id %>">Delete</a>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+    <div class="navigation">
+        <button><a href="/form">Form Submission</a></button>
+        <button><a href="/logout">Log Out</a></button>
+    </div>
+</body>
+
+</html>

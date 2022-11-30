@@ -1,0 +1,46 @@
+<% //debugger; %>
+<% if(errors == 1) { %>
+<h1>No results found</h1>
+
+<% } else if(errors == 2) { %>
+
+<h1>Generic Error</h1>
+
+<% } else if (errors == 3) {  //debugger; %>
+<h1>Data Failed Validation</h1>
+<ul>
+    <% if(errorsList.first){%>
+    <li>
+        first: <%= errorsList.first %>
+    </li>
+    <% } %>
+    <% if(errorsList.last){%>
+    <li>
+        last: <%= errorsList.last %>
+    </li>
+    <% } %>
+    <% if(errorsList.check1){%>
+    <li>
+        check1: <%= errorsList.check1 %>
+    </li>
+    <% } %>
+    <% if(errorsList.rating){%>
+    <li>
+        rating: <%= errorsList.rating %>
+    </li>
+    <% } %>
+    <% if(errorsList.agree){%>
+    <li>
+        agree: <%= errorsList.agree %>
+    </li>
+    <% } %>
+</ul>
+
+<% } else { %>
+<h1>Data Failed Validation</h1>
+<h2>Error:</h2>
+<p>
+    <%= errors %>
+</p>
+<% } %>
+<a href="/show">Back</a>
